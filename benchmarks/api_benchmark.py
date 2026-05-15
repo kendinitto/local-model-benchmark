@@ -151,12 +151,12 @@ class ApiBenchmark:
             "top_p": self.top_p,
             "repeat_penalty": self.repeat_penalty,
             "stream": True,
-            "cache_prompt": False,
         }
 
-        timings = {}
         token_count = 0
         first_token_time = None
+        prompt_tokens = 0
+        final_data = None
         start_time = time.perf_counter()
 
         try:
@@ -173,30 +173,35 @@ class ApiBenchmark:
                 for line in resp.iter_lines():
                     if not line:
                         continue
+                    line_str = line.decode("utf-8") if isinstance(line, bytes) else line
+                    if not line_str.startswith("data: "):
+                        continue
+                    data_str = line_str[6:]
                     try:
-                        data = json.loads(line)
+                        data = json.loads(data_str)
                         if first_token_time is None and data.get("content"):
                             first_token_time = (time.perf_counter() - start_time) * 1000
-                        if data.get("content"):
-                            token_count += 1
-                        if data.get("timing"):
-                            timings = data["timing"]
+                        if data.get("tokens"):
+                            token_count += len(data["tokens"])
+                        if data.get("tokens_evaluated"):
+                            prompt_tokens = data["tokens_evaluated"]
                         if data.get("stop"):
-                            if "tokens_predicted" in data:
-                                token_count = data["tokens_predicted"]
-                            if "tokens_evaluated" in data:
-                                timings["prompt_tokens"] = data["tokens_evaluated"]
+                            final_data = data
                     except json.JSONDecodeError:
                         continue
 
             end_time = time.perf_counter()
             total_time_ms = (end_time - start_time) * 1000
 
-            predict_time_ms = timings.get("predicted_ms_per_token", 0) * token_count
-            tps = token_count / (predict_time_ms / 1000) if predict_time_ms > 0 else 0
+            if final_data and "timing" in final_data:
+                timing = final_data["timing"]
+                tps_predict = timing.get("predicted_per_second", 0)
+                tps = tps_predict if tps_predict > 0 else (token_count / (total_time_ms / 1000))
+            else:
+                tps = token_count / (total_time_ms / 1000) if total_time_ms > 0 else 0
 
             return {
-                "prompt_tokens": timings.get("prompt_n", 0) or int(self.count_tokens_approx(prompt)),
+                "prompt_tokens": prompt_tokens or int(self.count_tokens_approx(prompt)),
                 "generated_tokens": token_count,
                 "tokens_per_second": round(tps, 2),
                 "time_to_first_token_ms": round(first_token_time, 2) if first_token_time else 0,

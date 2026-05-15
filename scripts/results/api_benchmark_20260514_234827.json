@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "benchmark_tool": "Local LLM API Benchmark Suite",
+    "server_url": "http://172.28.176.1:11434",
+    "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+    "generated_at": "2026-05-14T23:48:27",
+    "total_runs": 4
+  },
+  "summary": {
+    "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+    "runs": 4,
+    "avg_tokens_per_second": 0.0,
+    "max_tokens_per_second": 0,
+    "min_tokens_per_second": 0,
+    "avg_ttf_ms": 0.0,
+    "total_prompt_tokens": 253,
+    "total_generated_tokens": 0
+  },
+  "results": [
+    {
+      "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+      "prompt_name": "code_generation",
+      "prompt_category": "coding",
+      "prompt_tokens": 40,
+      "generated_tokens": 0,
+      "tokens_per_second": 0,
+      "time_to_first_token_ms": 0,
+      "total_time_ms": 25584.24,
+      "server_url": "http://172.28.176.1:11434",
+      "n_predict": 1024,
+      "temperature": 0.7,
+      "timestamp": "2026-05-14T23:47:28"
+    },
+    {
+      "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+      "prompt_name": "logical_reasoning",
+      "prompt_category": "reasoning",
+      "prompt_tokens": 72,
+      "generated_tokens": 0,
+      "tokens_per_second": 0,
+      "time_to_first_token_ms": 0,
+      "total_time_ms": 11741.91,
+      "server_url": "http://172.28.176.1:11434",
+      "n_predict": 1024,
+      "temperature": 0.7,
+      "timestamp": "2026-05-14T23:47:40"
+    },
+    {
+      "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+      "prompt_name": "code_debugging",
+      "prompt_category": "coding",
+      "prompt_tokens": 100,
+      "generated_tokens": 0,
+      "tokens_per_second": 0,
+      "time_to_first_token_ms": 0,
+      "total_time_ms": 23513.65,
+      "server_url": "http://172.28.176.1:11434",
+      "n_predict": 1024,
+      "temperature": 0.7,
+      "timestamp": "2026-05-14T23:48:04"
+    },
+    {
+      "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+      "prompt_name": "system_design",
+      "prompt_category": "reasoning",
+      "prompt_tokens": 41,
+      "generated_tokens": 0,
+      "tokens_per_second": 0,
+      "time_to_first_token_ms": 0,
+      "total_time_ms": 23410.98,
+      "server_url": "http://172.28.176.1:11434",
+      "n_predict": 1024,
+      "temperature": 0.7,
+      "timestamp": "2026-05-14T23:48:27"
+    }
+  ]
+}
