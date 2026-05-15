@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+ENV/
+
+# Model files (large!)
+*.gguf
+*.bin
+*.pt
+*.safetensors
+models/
+
+# Results (optional — uncomment if you don't want to commit results)
+# results/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# llama.cpp build
+llama.cpp/
+!llama.cpp/.git
+
+# Environment
+.env
+.env.local

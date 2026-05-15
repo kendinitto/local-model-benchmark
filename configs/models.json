@@ -1,0 +1,106 @@
+{
+  "models": [
+    {
+      "name": "Qwen 3.6 27B",
+      "path": "/path/to/qwen3-6-27b-q4_k_m.gguf",
+      "quantization": "Q4_K_M",
+      "gpu_layers": 35,
+      "thread_count": 8,
+      "batch_size": 4096,
+      "context_size": 8192,
+      "flash_attention": true,
+      "mmap": true,
+      "mlock": false
+    },
+    {
+      "name": "Qwen 3.6 27B",
+      "path": "/path/to/qwen3-6-27b-q5_k_m.gguf",
+      "quantization": "Q5_K_M",
+      "gpu_layers": 35,
+      "thread_count": 8,
+      "batch_size": 4096,
+      "context_size": 8192,
+      "flash_attention": true,
+      "mmap": true,
+      "mlock": false
+    },
+    {
+      "name": "Qwen 3.6 27B",
+      "path": "/path/to/qwen3-6-27b-q8_0.gguf",
+      "quantization": "Q8_0",
+      "gpu_layers": 35,
+      "thread_count": 8,
+      "batch_size": 2048,
+      "context_size": 4096,
+      "flash_attention": true,
+      "mmap": true,
+      "mlock": false
+    },
+    {
+      "name": "Meta Llama 3.1 8B",
+      "path": "/path/to/llama3-1-8b-instruct-q4_k_m.gguf",
+      "quantization": "Q4_K_M",
+      "gpu_layers": -1,
+      "thread_count": 8,
+      "batch_size": 2048,
+      "context_size": 8192,
+      "flash_attention": true,
+      "mmap": true,
+      "mlock": false
+    },
+    {
+      "name": "Mistral 7B Instruct",
+      "path": "/path/to/mistral-7b-instruct-v0.3-q4_k_m.gguf",
+      "quantization": "Q4_K_M",
+      "gpu_layers": -1,
+      "thread_count": 8,
+      "batch_size": 2048,
+      "context_size": 8192,
+      "flash_attention": true,
+      "mmap": true,
+      "mlock": false
+    }
+  ],
+  "optimization_presets": {
+    "speed_max": {
+      "description": "Maximum throughput — best for batch processing",
+      "gpu_layers": -1,
+      "thread_count": 16,
+      "batch_size": 8192,
+      "context_size": 4096,
+      "flash_attention": true,
+      "mmap": true,
+      "mlock": false
+    },
+    "balanced": {
+      "description": "Balanced speed and context window",
+      "gpu_layers": -1,
+      "thread_count": 8,
+      "batch_size": 4096,
+      "context_size": 8192,
+      "flash_attention": true,
+      "mmap": true,
+      "mlock": false
+    },
+    "memory_conserve": {
+      "description": "Minimum memory usage — for constrained systems",
+      "gpu_layers": 20,
+      "thread_count": 4,
+      "batch_size": 1024,
+      "context_size": 4096,
+      "flash_attention": false,
+      "mmap": true,
+      "mlock": false
+    },
+    "context_max": {
+      "description": "Maximum context window — for long document processing",
+      "gpu_layers": -1,
+      "thread_count": 8,
+      "batch_size": 4096,
+      "context_size": 32768,
+      "flash_attention": true,
+      "mmap": true,
+      "mlock": true
+    }
+  }
+}
