@@ -116,7 +116,24 @@ Results are saved as JSON to `results/` with:
 - Summary statistics: avg/max/min tokens/sec per model
 - Comparison table printed to stdout
 
-Example output:
+Example output (Qwen 3.6 27B Q4_K_M via API):
+
+```
+======================================================================
+RESULTS — unsloth/Qwen3.6-27B (UD-Q4_KM) via http://localhost:11434
+======================================================================
+Prompt                    tok/s      TTF ms     Tokens     Category
+----------------------------------------------------------------------
+code_generation           41.05      1701.26    1024       coding
+logical_reasoning         43.86      164.73     1024       reasoning
+code_debugging            42.42      222.07     188        coding
+system_design             43.76      145.61     1024       reasoning
+----------------------------------------------------------------------
+AVERAGE                   42.77      558.42     3260
+======================================================================
+```
+
+CLI mode comparison across models:
 
 ```
 ================================================================================
@@ -124,10 +141,10 @@ BENCHMARK COMPARISON
 ================================================================================
 Model                               Avg tok/s    Max tok/s    Avg TTF ms   Runs
 --------------------------------------------------------------------------------
-Qwen 3.6 27B (Q5_K_M)               42.50        48.20        312.40       4
-Qwen 3.6 27B (Q4_K_M)               51.80        58.30        285.10       4
 Meta Llama 3.1 8B (Q4_K_M)          89.20        95.60        142.80       4
 Mistral 7B Instruct (Q4_K_M)        92.10        98.40        138.50       4
+Qwen 3.6 27B (Q4_K_M)               51.80        58.30        285.10       4
+Qwen 3.6 27B (Q5_K_M)               42.50        48.20        312.40       4
 ================================================================================
 ```
 

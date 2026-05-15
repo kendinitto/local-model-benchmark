@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "benchmark_tool": "Local LLM API Benchmark Suite",
+    "server_url": "http://172.28.176.1:11434",
+    "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+    "generated_at": "2026-05-14T23:52:09",
+    "total_runs": 4
+  },
+  "summary": {
+    "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+    "runs": 4,
+    "avg_tokens_per_second": 42.77,
+    "max_tokens_per_second": 43.86,
+    "min_tokens_per_second": 41.05,
+    "avg_ttf_ms": 558.42,
+    "total_prompt_tokens": 292,
+    "total_generated_tokens": 3260
+  },
+  "results": [
+    {
+      "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+      "prompt_name": "code_generation",
+      "prompt_category": "coding",
+      "prompt_tokens": 37,
+      "generated_tokens": 1024,
+      "tokens_per_second": 41.05,
+      "time_to_first_token_ms": 1701.26,
+      "total_time_ms": 24943.06,
+      "server_url": "http://172.28.176.1:11434",
+      "n_predict": 1024,
+      "temperature": 0.7,
+      "timestamp": "2026-05-14T23:51:17"
+    },
+    {
+      "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+      "prompt_name": "logical_reasoning",
+      "prompt_category": "reasoning",
+      "prompt_tokens": 72,
+      "generated_tokens": 1024,
+      "tokens_per_second": 43.86,
+      "time_to_first_token_ms": 164.73,
+      "total_time_ms": 23345.31,
+      "server_url": "http://172.28.176.1:11434",
+      "n_predict": 1024,
+      "temperature": 0.7,
+      "timestamp": "2026-05-14T23:51:41"
+    },
+    {
+      "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+      "prompt_name": "code_debugging",
+      "prompt_category": "coding",
+      "prompt_tokens": 143,
+      "generated_tokens": 188,
+      "tokens_per_second": 42.42,
+      "time_to_first_token_ms": 222.07,
+      "total_time_ms": 4432.11,
+      "server_url": "http://172.28.176.1:11434",
+      "n_predict": 1024,
+      "temperature": 0.7,
+      "timestamp": "2026-05-14T23:51:45"
+    },
+    {
+      "model": "unsloth/Qwen3.6-27B (UD-Q4_KM)",
+      "prompt_name": "system_design",
+      "prompt_category": "reasoning",
+      "prompt_tokens": 40,
+      "generated_tokens": 1024,
+      "tokens_per_second": 43.76,
+      "time_to_first_token_ms": 145.61,
+      "total_time_ms": 23398.61,
+      "server_url": "http://172.28.176.1:11434",
+      "n_predict": 1024,
+      "temperature": 0.7,
+      "timestamp": "2026-05-14T23:52:09"
+    }
+  ]
+}
