@@ -4,6 +4,7 @@ Production-grade benchmarking tool for measuring local LLM inference performance
 
 ## Features
 
+- **Dual benchmark modes** — CLI mode (direct llama.cpp binary) or API mode (connect to running server via HTTP)
 - **Multi-model benchmarking** — Compare Qwen, LLaMA, Mistral, and other GGUF models side by side
 - **Quantization analysis** — Benchmark Q4_K_M, Q5_K_M, Q8_0, and other quant levels to find the speed/quality sweet spot
 - **Hardware optimization profiles** — Presets for speed-max, balanced, memory-conserve, and max-context configurations
@@ -38,6 +39,8 @@ Edit `configs/models.json` with your model paths:
 
 ### 3. Run Benchmarks
 
+**CLI Mode** (requires llama.cpp binary):
+
 ```bash
 # Full suite with config file
 python benchmarks/benchmark.py -c configs/models.json
@@ -48,6 +51,24 @@ python scripts/quick_bench.py /path/to/model.gguf --name "Qwen 3.6 27B" --quant 
 # Specific category only
 python benchmarks/benchmark.py -c configs/models.json --category coding
 ```
+
+**API Mode** (connects to running llama.cpp server — no binary needed):
+
+```bash
+# Quick API benchmark (defaults to localhost:8080)
+python scripts/quick_bench.py --api
+
+# Connect to remote server
+python scripts/quick_bench.py --api --server http://192.168.1.100:8080
+
+# Full API benchmark suite
+python benchmarks/api_benchmark.py --server http://localhost:8080 --predict 1024
+
+# Force OpenAI-compatible API mode
+python benchmarks/api_benchmark.py --server http://localhost:8080 --api-mode openai
+```
+
+API mode works with any llama.cpp server regardless of platform (Windows, Linux, macOS) — just point it at the IP and port.
 
 ## Optimization Presets
 
